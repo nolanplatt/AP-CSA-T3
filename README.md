@@ -3,10 +3,10 @@
 ## Team Members
 
 
-| Team Member | Github Profile | Journal Link | Repository Contributions | Issues | Role |
+| Team Member | Github Profile | Study Partner | Repository Contributions | Issues | Role |
 | ----------- | --------------- | ------------ | -------------------- | ------ | --------------- |
-| Nolan P. | [@nolanplatt](https://github.com/nolanplatt) | | | | |
-| Rishi P. | [@rpeddakama](https://github.com/rpeddakama) | | | | |
-| Ashwin B. | [@ashwinbabu888](https://github.com/ashwinbabu888) | | | | |
-| Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong) | | | | |
-| Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | | | | |
+| Nolan P. | [@nolanplatt](https://github.com/nolanplatt) | Ashwin/Rishi | | | |
+| Rishi P. | [@rpeddakama](https://github.com/rpeddakama) | Ashwin/Nolan | | | |
+| Ashwin B. | [@ashwinbabu888](https://github.com/ashwinbabu888) | Rishi/Nolan | | | |
+| Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong) | Varnit | | | |
+| Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | | | |
