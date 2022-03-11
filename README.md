@@ -1,4 +1,4 @@
-# Team Anti Squirrel Task Force 🐿️ 🚫 | AP CSA T3 
+# Team Anti Squirrel Task Force 🐿️ 🚫 | AP CSA T3  
 
 ## PBL Idea
 We created an enterprise-facing finances platform that allows corporations to manage funds and wages, optimize workflow, and predict stock futures. This is a tool for companies, big or small, to make day-to-day operations easier, allowing them to focus on more important company-related work.
