@@ -3,6 +3,11 @@
 ## PBL Idea
 We created an enterprise-facing finances platform that allows corporations to manage funds and wages, optimize workflow, and predict stock futures. This is a tool for companies, big or small, to make day-to-day operations easier, allowing them to focus on more important company-related work.
 
+Potential features include:
+- Stock predictor that uses a trained machine learning model
+- Manager reports where directors can give status updates, reviews, and comments to administative officers quickly
+- Finance tracker that logs purchases, profits, and investments.
+
 ## Team Members
 
 | Team Member | Github Profile | Study Partner | Repository Contributions | Issues | Role |
