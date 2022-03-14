@@ -1,12 +1,12 @@
 # Team Anti Squirrel Task Force 🐿️ 🚫 | AP CSA T3
 
 ## PBL Idea
-We created an enterprise-facing finances platform that allows corporations to manage funds and wages, optimize workflow, and predict stock futures. This is a tool for companies, big or small, to make day-to-day operations easier, allowing them to focus on more important company-related work.
+We will be creating a multi-faceted platform that will help the world navigate and solve environmental issues. As Steve Jobs famously said, "Think Different"; our platform will revolutionize how modern citizens navigate issues across Earth. By implementing an interactive map of the globe, users will be able to report environmental issues, while good samaritans can solve them and mark them as complete. 
 
 Potential features include:
-- Stock predictor that uses a trained machine learning model
-- Manager reports where directors can give status updates, reviews, and comments to administative officers quickly
-- Finance tracker that logs purchases, profits, and investments.
+- Implemented API of globe map utilizing OpenWorldMap
+- Efficient Model View Controller (MVC) to efficiently communicate between frontend/backend and navigate API requests.
+- Statistical page (with tangibles) showing how our platform is changing the world (number of tasks reported/completed, number of users, etc).
 
 ## Team Members
 
