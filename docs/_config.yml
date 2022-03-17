@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -31,7 +31,7 @@ url: "https://rpeddakama.github.io/" # the base hostname & protocol for your sit
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username: jekyll
 
 # Build settings
 # theme: minima
@@ -40,7 +40,6 @@ remote_theme: https://github.com/SupunKavinda/jekyll-theme-leaf
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-
 
 social:
   github: "https://github.com/rpeddakama/AP-CSA-T3"
