@@ -34,6 +34,20 @@ Potential features include:
 ## Project Owner
 Mr Hendricks is an AP Biology and AP Environmental Science teacher, and we will be having him as the sponsor to our project. Just like us, this teacher is passionate about preserving the environment and sees the beauty of nature and life and shares interest in making a difference. As our sponsor, he'll help us work towards making a difference, step at a time.
 
+## Web Project
+>- By implementing an interactive map of the globe, users will be able to report environmental issues, while good samaritans can solve them and mark them as complete.
+- Ideas
+>- We hope to make this app similar to waze or nextdoor, a community oriented resource that repots on environmental issues near us.
+- Wireframe
+>- [Link](https://www.figma.com/file/tpYBRxdaWXlTMiIqnNVG4B/Wireframe)
+
+## Embed Project
+- Hardware Idea
+>- Main hardware usage will be deployment machine, which will be handled by Rishi's PC
+- Project Description
+- Success Idea
+>- If there is more traffic on the website and it has a high load on the pc due to map apis, we may transfer the computational load onto multiple PCs using raspberry pis and and Kubernetes possibly.
+
 ## Tasks 
 - [Rishi](https://github.com/rpeddakama/AP-CSA-T3/issues/16)
 - [Nolan](https://github.com/rpeddakama/AP-CSA-T3/issues/15)
