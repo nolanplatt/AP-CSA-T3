@@ -14,6 +14,14 @@ layout: default
 <!-- | Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong) | Varnit | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=yeonjoonhong) | TODO | TODO | -->
 <!-- | Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=VarnitGupta24) | TODO | TODO | -->
 
+## Team roles
+- OO/Scrum Master: Rishi
+- Front-end: Varnit/Yeonjoon
+- Deployement: Nolan
+- Git: Ashwin
+- Backend: Nolan/Rishi
+- [Scrum Board](https://github.com/rpeddakama/AP-CSA-T3/projects/1)
+
 ## PBL Idea
 We will be creating a multi-faceted platform that will help the world navigate and solve environmental issues. As Steve Jobs famously said, "Think Different"; our platform will revolutionize how modern citizens navigate issues across Earth. By implementing an interactive map of the globe, users will be able to report environmental issues, while good samaritans can solve them and mark them as complete. 
 

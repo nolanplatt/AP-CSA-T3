@@ -20,7 +20,7 @@
 
 title: Anti-Squirrel Task Force Wiki
 email: your-email@example.com
-description: "todo"
+description: "This is the jekyll page for our team"
 
 # Use these lines for deployment
 baseurl: "AP-CSA-T3" # the subpath of your site, e.g. /blog
