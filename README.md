@@ -13,7 +13,7 @@ Mr Hendricks is an AP Biology and AP Environmental Science teacher, and we will 
 ## Team Members
 
 | Team Member | Github Profile | Study Partner | Repository Contributions | Issues | Role | Individual Repo |
-| ----------- | --------------- | ------------ | -------------------- | ------ | --------------- |------ |
+| ----------- | --------------- | ------------ | -------------------- | ------ | --------------- |--------|
 | Nolan P. | [@nolanplatt](https://github.com/nolanplatt) | Ashwin/Rishi | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=nolanplatt) | | Deployment Manager | |
 | Rishi P. | [@rpeddakama](https://github.com/rpeddakama) | Ashwin/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=rpeddakama) | | Scrum Master | |
 | Ashwin B. | [@ashwinbabu888](https://github.com/ashwinbabu888) | Rishi/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=ashwinbabu888) | | Team Leader/GitHub Admin | |
