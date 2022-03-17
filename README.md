@@ -8,6 +8,8 @@ Potential features include:
 - Efficient Model View Controller (MVC) to efficiently communicate between frontend/backend and navigate API requests.
 - Statistical page (with tangibles) showing how our platform is changing the world (number of tasks reported/completed, number of users, etc).
 
+Mr Hendricks is an AP Biology and AP Environmental Science teacher, and we will be having him as the sponsor to our project. Just like us, this teacher is passionate about preserving the environment and sees the beauty of nature and life and shares interest in making a difference. As our sponsor, he'll help us work towards making a difference, step at a time.
+
 ## Team Members
 
 | Team Member | Github Profile | Study Partner | Repository Contributions | Issues | Role |
