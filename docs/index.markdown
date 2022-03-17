@@ -15,11 +15,11 @@ layout: default
 <!-- | Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=VarnitGupta24) | TODO | TODO | -->
 
 ## Team roles
-- Team Leader/Scrum Master: Rishi
+- Team Leader/Deployment: Nolan
 - Front-end: Varnit/Yeonjoon
-- Deployement: Nolan
+- Backend: Nolan/Ashwin
 - Git: Ashwin
-- Backend: Nolan/Rishi
+- Scrum Master: Rishi
 - [Scrum Board](https://github.com/rpeddakama/AP-CSA-T3/projects/1)
 
 ## PBL Idea
