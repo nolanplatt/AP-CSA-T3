@@ -16,4 +16,4 @@ Potential features include:
 | Rishi P. | [@rpeddakama](https://github.com/rpeddakama) | Ashwin/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=rpeddakama) | | Scrum Master |
 | Ashwin B. | [@ashwinbabu888](https://github.com/ashwinbabu888) | Rishi/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=ashwinbabu888) | | |
 | Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong) | Varnit | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=yeonjoonhong) | | |
-| Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=VarnitGupta24) | | |
+| Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=VarnitGupta24) | | design manager|
