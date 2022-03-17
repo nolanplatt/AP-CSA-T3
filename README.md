@@ -1,6 +1,5 @@
 # Team Anti Squirrel Task Force 🐿️ 🚫 | AP CSA T3 
 
-## Team Members
 
 ## Team Members
 
