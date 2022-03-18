@@ -66,18 +66,15 @@ layout: default
 
 > - By implementing an interactive map of the globe, users will be able to report environmental issues, while good samaritans can solve them and mark them as complete.
 
-- Ideas
-  > - We hope to make this app similar to waze or nextdoor, a community oriented resource that repots on environmental issues near us.
-- Wireframe
-  > - [Link](https://www.figma.com/file/tpYBRxdaWXlTMiIqnNVG4B/Wireframe)
+> ### Ideas
+>
+> - We hope to make this app similar to waze or nextdoor, a community oriented resource that repots on environmental issues near us.
+> - [Wireframe](https://www.figma.com/file/tpYBRxdaWXlTMiIqnNVG4B/Wireframe)
 
 ## Embed Project
 
 > - Main hardware usage will be deployment machine, which will be handled by Rishi's PC
-
-- Project Description
-- Success Idea
-  > - If there is more traffic on the website and it has a high load on the pc due to map apis, we may transfer the computational load onto multiple PCs using raspberry pis and and Kubernetes possibly.
+> - If there is more traffic on the website and it has a high load on the pc due to map apis, we may transfer the computational load onto multiple PCs using raspberry pis and and Kubernetes possibly.
 
 ## Tasks
 
