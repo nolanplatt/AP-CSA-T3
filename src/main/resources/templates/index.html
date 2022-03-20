@@ -5,6 +5,7 @@
 
 <head>
     <script src="js/core.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 
 
     <div layout:fragment="metadata" th:remove="tag">
@@ -16,13 +17,13 @@
     <div layout:fragment="content" th:remove="tag">
 
 
-        <!-- Typerwriter.js Implementation-->
-        <div id="app">/<div>
-                <div id="typewriter"></div>
+               <div id="app">
 
-                
+                <!-- Typerwriter.js Implementation-->
+                <div  class="text-center" id="typewriter">
+                </div>
                 <!-- End Typewriter.js -->
-            </div>
+        </div>
         </div>
 
 
@@ -33,18 +34,17 @@
                     loop: true
                 });
                 typewriter.typeString
-                ('a world where ...')
-                    .typeString(' <strong> there is a surplus of trees</strong>')
+                ('a world where there are ... ')
+                    .typeString(' <strong>thriving trees</strong>')
                     .pauseFor(2500)
-                    .deleteChars(45)
-                    .typeString('<strong> our planet is a stable temperature</strong>')
+                    .deleteChars(13)
+                    .typeString('<strong>thriving temperatures</strong>')
                     .pauseFor(2500)
-                    .deleteChars(52)
-                    .typeString('<strong> pollution is no longer a threat</strong>')
+                    .deleteChars(20)
+                    .typeString('<strong>thriving populations</strong>')
                     .start();
 
             </script>
-
 </body>
 
 </html>
