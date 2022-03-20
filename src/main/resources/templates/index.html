@@ -4,7 +4,7 @@
     lang="en">
 
 <head>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="js/core.js"></script>
 
 
     <div layout:fragment="metadata" th:remove="tag">
@@ -20,6 +20,7 @@
         <div id="app">/<div>
                 <div id="typewriter"></div>
 
+                
                 <!-- End Typewriter.js -->
             </div>
         </div>
@@ -27,27 +28,20 @@
 
         <div layout:fragment="script" th:remove="tag">
             <script th:inline="javascript">
-                console.log("test")
                 var app = document.getElementById('app');
-
                 var typewriter = new Typewriter(app, {
                     loop: true
                 });
-
-                typewriter.
-                    typeString('a world where ...')
+                typewriter.typeString
+                ('a world where ...')
                     .typeString(' <strong> there is a surplus of trees</strong>')
                     .pauseFor(2500)
-                    .deleteChars(31)
+                    .deleteChars(45)
                     .typeString('<strong> our planet is a stable temperature</strong>')
                     .pauseFor(2500)
                     .deleteChars(52)
                     .typeString('<strong> pollution is no longer a threat</strong>')
                     .start();
-
-
-
-
 
             </script>
 
