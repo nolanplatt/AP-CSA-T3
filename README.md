@@ -12,11 +12,10 @@ Mr Hendricks is an AP Biology and AP Environmental Science teacher, and we will 
 
 ## Team Members
 
-| Team Member | Github Profile | Study Partner | Repository Contributions | Issues | Role | Individual Repo |
-| ----------- | --------------- | ------------ | -------------------- | ------ | --------------- |--------|
-| Nolan P. | [@nolanplatt](https://github.com/nolanplatt) | Ashwin/Rishi | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=nolanplatt) | | Deployment Manager | [Indi Repo](https://github.com/nolanplatt/AP-CSA-Data-Structures) |
-| Rishi P. | [@rpeddakama](https://github.com/rpeddakama) | Ashwin/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=rpeddakama) | | Scrum Master | |
-| Ashwin B. | [@ashwinbabu888](https://github.com/ashwinbabu888) | Rishi/Nolan | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=ashwinbabu888) | | Team Leader/GitHub Admin | |
-| Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong) | Varnit | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=yeonjoonhong) | | Technical Officer| |
-| Varnit G. | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon | [commits](https://github.com/nolanplatt/AP-CSA-T3/commits?author=VarnitGupta24) |https://www.figma.com/file/bQ6bTncqHyIUAxYADWpcEo/DNU?node-id=2%3A2 - figma | design manager| |
- 
+| Team Member | Github Profile                                     | Study Partner | Repository Contributions                                                        | Issues                                                                                                  | Role                       |
+| ----------- | -------------------------------------------------- | ------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------- |
+| Nolan P.    | [@nolanplatt](https://github.com/nolanplatt)       | Ashwin/Rishi  | [commits](https://github.com/rpeddakama/AP-CSA-T3/commits?author=nolanplatt)    | [Issues](https://github.com/rpeddakama/AP-CSA-T3/projects/1?card_filter_query=assignee%3Anolanplatt)    | Team Leader & Deployment Manager         |
+| Rishi P.    | [@rpeddakama](https://github.com/rpeddakama)       | Ashwin/Nolan  | [commits](https://github.com/rpeddakama/AP-CSA-T3/commits?author=rpeddakama)    | [Issues](https://github.com/rpeddakama/AP-CSA-T3/projects/1?card_filter_query=assignee%3Arpeddakama)    | Scrum Master |
+| Ashwin B.   | [@ashwinbabu888](https://github.com/ashwinbabu888) | Rishi/Nolan   | [commits](https://github.com/rpeddakama/AP-CSA-T3/commits?author=ashwinbabu888) | [Issues](https://github.com/rpeddakama/AP-CSA-T3/projects/1?card_filter_query=assignee%3Aashwinbabu888) | GitHub Admin               |
+| Yeonjoon H. | [@yeonjoonhong](https://github.com/yeonjoonhong)   | Varnit        | [commits](https://github.com/rpeddakama/AP-CSA-T3/commits?author=yeonjoonhong)  | [Issues](https://github.com/rpeddakama/AP-CSA-T3/projects/1?card_filter_query=assignee%3Ayeonjoonhong)  | Frontend Developer         |
+| Varnit G.   | [@VarnitGupta24](https://github.com/VarnitGupta24) | Yeonjoon      | [commits](https://github.com/rpeddakama/AP-CSA-T3/commits?author=VarnitGupta24) | [Issues](https://github.com/rpeddakama/AP-CSA-T3/projects/1?card_filter_query=assignee%3AVarnitGupta24) | Frontend Developer         |
