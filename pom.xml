@@ -23,6 +23,15 @@
         <thymeleaf-extras-java8time-version>3.0.1.RELEASE</thymeleaf-extras-java8time-version>
     </properties>
 
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
     <dependencies>
         <!-- Spring -->
         <dependency>
