@@ -6,3 +6,8 @@ layout: default
 ---
 
 {% include navigation.md %}
+
+# Accomplishments
+
+- Functioning typewriter js on the homepage
+- Successfully inserted OpenStreetMap onto the homepage of the website
