@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Signup {
     @GetMapping("/signup") // CONTROLLER handles GET request for /greeting, maps it to greeting() and does
                            // variable bindings
-    public String signup(@RequestParam(name = "username", required = true) String username,
-            @RequestParam(name = "password", required = true) String password,
+    public String signup(@RequestParam(name = "username", required = false, defaultValue = "test") String username,
+            @RequestParam(name = "password", required = false, defaultValue = "test") String password,
             Model model) {
         // @RequestParam handles required and default values, name and blog.model are
         // class variables, blog.model looking like JSON
