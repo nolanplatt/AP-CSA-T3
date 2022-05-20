@@ -15,6 +15,7 @@ public class Blog {
 @Autowired
 private PostService postService;
 
+// controller for main blog page
 @RequestMapping("/blog")
 public String blog(Model model) {
     List<Post> latest5Posts = postService.findLatest5();

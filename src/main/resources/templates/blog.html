@@ -8,10 +8,18 @@
     <div layout:fragment="metadata" th:remove="tag">
         <title>Blog</title>
     </div>
+    <link rel="stylesheet" href="/src/main/resources/static/css/blog.css" th:href="@{/css/blog.css}"/>
 </head>
 
 <body>
+
     <div layout:fragment="content" th:remove="tag">
+
+        <aside style="float: right; width: 200px; background: #CCC; padding: 15px; margin-left: 20px; margin-top: 10px; margin-right: 20px;">
+            <h2 style="margin: 5px 0px 15px 0px;">Recent Posts</h2>
+            <a href="#" th:each="p : ${latest5posts}" th:text="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}" style="display: block; margin: 5px 0px; text-decoration: none;"></a>
+        </aside>
+        
         <h1>Blog</h1>
         <a href="/createpost">Create Post</a>
 
@@ -29,7 +37,6 @@
                     </span>
                 </div>
                 <p class="content" th:utext="${p.body}">Post content</p>
-
             </article>
         </main>
     </div>
