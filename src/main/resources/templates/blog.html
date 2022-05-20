@@ -13,11 +13,6 @@
 
 <body>
 
-    <ul id="messages" th:with="notifyMessages=${session[T(blog.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY]}">
-        <li th:each="msg : ${notifyMessages}" th:text="${msg.text}" th:class="${#strings.toLowerCase(msg.type)}" style="display: block; width: 80%; background: #d00; color: white; margin: 5px auto; text-align: center; padding: 5px; border-radius: 5px;"></li>
-        <span th:if="${notifyMessages}" th:remove="all" th:text="${session.remove(T(blog.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY)}"></span>
-    </ul>
-
     <div layout:fragment="content" th:remove="tag">
 
         <aside style="float: right; width: 200px; background: #CCC; padding: 15px; margin-left: 20px; margin-top: 10px; margin-right: 20px;">
