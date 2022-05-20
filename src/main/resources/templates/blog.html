@@ -14,5 +14,23 @@
     <div layout:fragment="content" th:remove="tag">
         <h1>Blog</h1>
         <a href="/createpost">Create Post</a>
+
+        <br>
+
+        <main id="posts">
+            <article th:each="p : ${latest3posts}">
+                <h2 class="title" th:text="${p.title}">Post Title</h2>
+                <div class="date">
+                    <i>Posted on</i>
+                    <span th:text="${#dates.format(p.date, 'dd-MM-yyyy')}">19-May-2022</span>
+                    <span th:if="${p.author}" th:remove="tag">
+                        <i>by</i>
+                        <span th:text="${p.author.fullName != null ? p.author.fullName : p.author.username}">John Mort</span>
+                    </span>
+                </div>
+                <p class="content" th:utext="${p.body}">Post content</p>
+
+            </article>
+        </main>
     </div>
 </body>
