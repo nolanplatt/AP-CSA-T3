@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}"
+    lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Blog</title>
+    </div>
+</head>
+
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <h1>Blog</h1>
+        <a href="/createpost">Create Post</a>
+    </div>
+</body>
