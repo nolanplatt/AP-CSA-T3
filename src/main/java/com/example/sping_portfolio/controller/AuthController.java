@@ -1,5 +1,6 @@
 package com.example.sping_portfolio.controller;
 
+import com.example.sping_portfolio.dto.LoginRequest;
 import com.example.sping_portfolio.dto.RegisterRequest;
 import com.example.sping_portfolio.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class AuthController {
     public ResponseEntity signup(@RequestBody RegisterRequest registerRequest) {
         authService.signup(registerRequest);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
     }
 }
