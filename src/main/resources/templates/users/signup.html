@@ -6,22 +6,44 @@
 <head>
     <div layout:fragment="metadata" th:remove="tag">
         <!-- Start of head content specific to page -->
-        <title>Greet</title>
+        <title>Signup</title>
         <!-- End of head content specific to page -->
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/loginsignup.css" />
+
     </div>
 </head>
 
 <body>
     <div layout:fragment="content" th:remove="tag">
         <!-- Start of body content specific to page -->
-        <div class="contact" style="height: 35vh;">
-            <div class="row justify-content-left" style="margin: 2%;">
-                <form action="/greet" method="GET" id="greetForm">
-                    <div>
-                        <label for="greetField">Type a greeting name?</label>
-                        <input name="name" id="greetField">
-                        <button>Greetings!</button>
-                        <p th:text="'Greetings, ' + ${name} + '!'"></p>
+        <div class="loginsignup-container">
+
+            <div class="form-container">
+                <form>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form2Example1" class="form-control" />
+                        <label class="form-label" for="form2Example1">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form2Example2" class="form-control" />
+                        <label class="form-label" for="form2Example2">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="button" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>Already have an account? <a href="/users/login">Login</a></p>
                     </div>
                 </form>
             </div>
