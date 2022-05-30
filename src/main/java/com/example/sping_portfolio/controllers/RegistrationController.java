@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.sping_portfolio.login.UserRegistrationDto;
-import com.example.sping_portfolio.service.UserService;
+import com.example.sping_portfolio.login.UserService;
 
 @Controller
 @RequestMapping("/registration")

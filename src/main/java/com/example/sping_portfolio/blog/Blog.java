@@ -1,4 +1,4 @@
-package com.example.sping_portfolio.model;
+package com.example.sping_portfolio.blog;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

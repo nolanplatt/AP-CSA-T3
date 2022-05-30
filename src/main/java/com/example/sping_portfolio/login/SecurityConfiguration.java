@@ -1,6 +1,4 @@
-package com.example.sping_portfolio.security;
-
-import com.example.sping_portfolio.service.UserService;
+package com.example.sping_portfolio.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

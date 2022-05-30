@@ -1,6 +1,6 @@
 package com.example.sping_portfolio.controllers;
 
-import com.example.sping_portfolio.service.BlogService;
+import com.example.sping_portfolio.blog.BlogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

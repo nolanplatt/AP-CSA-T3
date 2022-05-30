@@ -1,9 +1,6 @@
-package com.example.sping_portfolio.service;
+package com.example.sping_portfolio.blog;
 
 import java.util.List;
-
-import com.example.sping_portfolio.model.Blog;
-import com.example.sping_portfolio.repository.BlogRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

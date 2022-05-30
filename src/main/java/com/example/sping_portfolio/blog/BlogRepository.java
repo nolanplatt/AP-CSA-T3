@@ -1,6 +1,4 @@
-package com.example.sping_portfolio.repository;
-
-import com.example.sping_portfolio.model.Blog;
+package com.example.sping_portfolio.blog;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

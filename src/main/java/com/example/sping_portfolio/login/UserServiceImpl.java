@@ -1,4 +1,4 @@
-package com.example.sping_portfolio.service;
+package com.example.sping_portfolio.login;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,10 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.example.sping_portfolio.login.UserRegistrationDto;
-import com.example.sping_portfolio.repository.UserRepository;
-import com.example.sping_portfolio.login.Role;
-import com.example.sping_portfolio.login.User;
 
 @Service
 public class UserServiceImpl implements UserService {
