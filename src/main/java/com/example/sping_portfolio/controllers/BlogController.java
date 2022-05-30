@@ -15,7 +15,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String viewHomePage(Model model) {
-        model.addAttribute("listBlog", blogService.getAllBlogs());
+        model.addAttribute("listBlogs", blogService.getAllBlogs());
         return "blog/blogmain";
     }
 }
