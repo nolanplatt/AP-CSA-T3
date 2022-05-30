@@ -1,4 +1,6 @@
-package com.example.sping_portfolio.login.security;
+package com.example.sping_portfolio.security;
+
+import com.example.sping_portfolio.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import com.example.sping_portfolio.login.service.UserService;
 
 @Configuration
 @EnableWebSecurity
@@ -34,20 +34,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws 
-                                                Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/registration**", "/js/**", 
-                          "/css/**", "/img/**").permitAll().anyRequest()
-                .authenticated().and().formLogin().loginPage("/users/login").
-                                              permitAll().and().logout()
+        http.authorizeRequests().antMatchers("/registration**", "/js/**",
+                "/css/**", "/img/**").permitAll().anyRequest()
+                .authenticated().and().formLogin().loginPage("/users/login").permitAll().and().logout()
                 .invalidateHttpSession(true).clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).
-                                       logoutSuccessUrl("/users/login?logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/users/login?logout")
                 .permitAll();
 
     }
