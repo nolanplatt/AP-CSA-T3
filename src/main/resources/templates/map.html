@@ -18,23 +18,45 @@
     <div layout:fragment="metadata" th:remove="tag">
         <title>TBD | Map</title>
     </div>
+
+    
 </head>
 
 <body>
     <div layout:fragment="content" th:remove="tag">
 
+        <div id="particles-js"></div>
 
-        <div id="app">/<div>
-            <div id="map" style="width: 1000px; height: 750px; margin:0 auto;"></div>
-
-                
+        <div id="app">
+            <div id="map" style="width: 1000px; height: 750px; margin:0 auto;"> </div>
             </div>
+
+        </div>    
+        </div>
         </div>
 
 
         <div layout:fragment="script" th:remove="tag">
+
+
+            <script src="/js/particles.js"></script>
+
+            <script>
+                particlesJS.load('particles-js', '/particlesjs-config.json', function() {
+                    console.log('callback - particles.js config loaded');
+                });
+            </script>
+
+
             <script th:inline="javascript">
-              var map = L.map('map').setView([33.0144, -117.1214], 15);
+
+
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+
+              var map = L.map('map').setView([lat, long], 20);
               L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -44,7 +66,12 @@
     accessToken: 'pk.eyJ1IjoiZ3JhbmQ2IiwiYSI6ImNqb3FjM2IzdDAxY2Eza252aXp1aDcybmwifQ.Sp7OsuHHEq1ZK7DgVTgO-w'
 }).addTo(map);
 
+});
+
+
             </script>
+
+
 
 </body>
 

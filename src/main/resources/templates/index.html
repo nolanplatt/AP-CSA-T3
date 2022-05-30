@@ -9,13 +9,14 @@
 
 
     <div layout:fragment="metadata" th:remove="tag">
-        <title>TBD | Home</title>
+        <title>EnvMapper | Home</title>
     </div>
 </head>
 
 <body>
     <div layout:fragment="content" th:remove="tag">
 
+        <div id="particles-js"></div>
 
         <div id="app">
                 <!-- Typerwriter.js Implementation-->
@@ -26,6 +27,16 @@
 
 
         <div layout:fragment="script" th:remove="tag">
+
+            <script src="/js/particles.js"></script>
+
+            <script>
+                particlesJS.load('particles-js', '/particlesjs-config.json', function() {
+                    console.log('callback - particles.js config loaded');
+                });
+            </script>
+
+
             <script th:inline="javascript">
                 var app = document.getElementById('app');
                 var typewriter = new Typewriter(app, {
