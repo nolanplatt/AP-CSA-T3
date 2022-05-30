@@ -1,68 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>...</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
 </head>
+
 <body>
     <!-- Begin navigation fragments -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="header">
-        <a class="navbar-brand" href="http://envmapper.tk">
-            <img src="/static/images/ncs_logo.png" th:src="@{/images/ncs_logo.png}" width="50" height="50" class="d-inline-block align-center" alt="">
-            Environment Mapper
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="header"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark indigo bg-dark" th:fragment="header">
+        <a class="navbar-brand" href="#">EnvMapper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Bootstrap menus -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Intro <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Blog</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navBarMap" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Map
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/map">Global Map</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/map">Map</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" th:href="@{/users/login}">Log In <span class="sr-only">(current)</span></a>
-                </li>
-                
-                
             </ul>
-            <!-- Clock display -->
-            <div>
-                <span id="clock"></span>
-            </div>
-            <!-- Dark mode action -->
-            <div class="custom-control custom-switch">
-                <input type="checkbox" onclick="darkFunction()" class="custom-control-input" id="darkSwitch">
-                <label class="custom-control-label" for="darkSwitch"></label>
-            </div>
-            <!-- Navigation bar JavaScript support -->
-            <script>
-                // Dark Mode Toggle
-                function darkFunction() {
-                    let element = document.body;
-                    element.classList.toggle("dark-mode");
-                }
-                // Clock controller
-                let clockElement = document.getElementById('clock');
-                function clock() {
-                    let date = new Date();
-                    clockElement.textContent = date.toLocaleString();
-                }
-                // Clock refresh frequency
-                setInterval(clock, 1000);
-            </script>
+            <span class="nav-item">
+                <a class="nav-link text-white-50" href="/account">Account</a>
+            </span>
         </div>
     </nav>
-    <!-- Begin navigation fragments -->
 </body>
+
 </html>
