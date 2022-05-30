@@ -10,28 +10,55 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
 
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
- integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
- crossorigin=""></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <link
+    href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
+    rel="stylesheet"
+    />
+    
+
 
     <div layout:fragment="metadata" th:remove="tag">
         <title>EnvMapper | Map</title>
     </div>
 
-    
+
 </head>
 
 <body>
+   
+
     <div layout:fragment="content" th:remove="tag">
 
         <div id="particles-js"></div>
 
         <div id="app">
-            <div id="map" style="width: 1000px; height: 750px; margin:0 auto;"> </div>
+            <div class='sidebar'>
+            <div id='listings' class='listings'></div>
             </div>
+            <div id="map" class="map"> </div>
 
-        </div>    
+        
+        <div id="sideStatistics">
+            <h1>Statistics</h1>
+            <p>Number of Reports: 0</p>
+            <p>Number of Active Issues: 0</p>
+            <p>Number of Completed Issues: 0</p>
+        </div> 
+
+        <div id="report">
+            <h1>Report an Issue</h1>
+            <p><i>reports will be added at your current geographical location</i></p>
+            Issue Title (brief): <input type="text" name="issueTitle"><br>
+            Issue Description: <input type="text" name="issueDesc"><br>
+            Your Name (First, Last): <input type="text" name="issueAuthor"><br><br>
+            <input type="button" onclick="submitIssue()" value="Submit">
+        </div> 
+   
+        </div>
         </div>
         </div>
 
@@ -47,6 +74,12 @@
                 });
             </script>
 
+            <script>
+                function submitIssue() {
+
+                }
+            </script>
+
 
             <script th:inline="javascript">
 
@@ -56,20 +89,180 @@
                 let lat = position.coords.latitude;
                 let long = position.coords.longitude;
 
-              var map = L.map('map').setView([lat, long], 20);
-              L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiZ3JhbmQ2IiwiYSI6ImNqb3FjM2IzdDAxY2Eza252aXp1aDcybmwifQ.Sp7OsuHHEq1ZK7DgVTgO-w'
-}).addTo(map);
+             // var map = L.map('map').setView([lat, long], 20);
+
+
+             mapboxgl.accessToken = 'pk.eyJ1IjoiZ3JhbmQ2IiwiYSI6ImNqb3FjM2IzdDAxY2Eza252aXp1aDcybmwifQ.Sp7OsuHHEq1ZK7DgVTgO-w';
+
+              const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/light-v10',
+center: [long, lat],
+zoom: 3
+});
+map.addControl(new mapboxgl.NavigationControl());
+
+map.addControl(new mapboxgl.AttributionControl({
+customAttribution: 'Design and functionality by Nolan Platt | GitHub @nolanplatt | All Rights Reserved'
+}));
+
+const geojson = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        -109.764561089753,
+        38.386308465281
+        ]
+      },
+      "properties": {
+        "title": "Tree Fell Over",
+        "description": "Need assistance in replanting.",
+        "contact": "(999) 999-9999",
+        "address": "543 Fallen Tree Rd.",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+         -74.845571033281,
+         43.394348291848
+        ]
+      },
+      "properties": {
+        "title": "Oil Spill",
+        "description": "Need assistance in safely securing the oil.",
+        "contact": "(888) 888-8888",
+        "address": "923 Filthy Oil Blvd.",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        -108.614758073062,
+        29.385348997142
+        ]
+      },
+      "properties": {
+        "title": "Dehydrated Plants",
+        "description": "I need help hydrating some plants.",
+        "contact": "(333) 333-3333",
+        "address": "432 Dehydrated Plants St.",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        -85.594872661265,
+        30.386318348996
+        ]
+      },
+      "properties": {
+        "title": "Water Contamination",
+        "description": "Need assistance in safely securing the water.",
+        "contact": "(111) 111-1111",
+        "address": "342 Nasty Water St.",
+      }
+    }
+  ]
+};
+
+geojson.features.forEach(function (location, i) {
+  location.properties.id = i;
+});
+
+
+map.on('load', () => {
+  /* Add the data to your map as a layer */
+  map.addSource('places', {
+  type: 'geojson',
+  data: geojson
+});
+addMarkers(geojson);
+
+  buildLocationList(geojson);
 
 });
 
 
-            </script>
+
+
+
+
+    function buildLocationList(locations) {
+  for (const location of locations.features) {
+ 
+    const listings = document.getElementById('listings');
+    const listing = listings.appendChild(document.createElement('div'));
+    listing.id = `listing-${location.properties.id}`;
+    listing.className = 'item';
+
+    const link = listing.appendChild(document.createElement('a'));
+    link.href = '/';
+    link.className = 'title';
+    link.id = `link-${location.properties.id}`;
+    link.innerHTML = `${location.properties.title} - ${location.properties.address}`;
+
+    /* Add details to the individual listing. */
+    const details = listing.appendChild(document.createElement('div'));
+    details.innerHTML = `${location.properties.description}<br> <strong>Contact</strong>: ${location.properties.contact}`;
+
+
+  
+
+  }
+}
+
+
+
+function createPopUp(currentFeature) {
+  const popUps = document.getElementsByClassName('mapboxgl-popup');
+
+  if (popUps[0]) popUps[0].remove();
+
+  const popup = new mapboxgl.Popup({ closeOnClick: true })
+    .setLngLat(currentFeature.geometry.coordinates)
+    .setHTML(`<h3>${currentFeature.properties.title}</h3><h4>${currentFeature.properties.description}</h4>`)
+    .addTo(map);
+}
+
+function addMarkers(locations) {
+  for (const marker of locations.features) {
+    const el = document.createElement('div');
+    el.id = `marker-${marker.properties.id}`;
+    el.className = 'marker';
+
+ 
+    new mapboxgl.Marker(el, { offset: [0, -23] })
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+
+
+
+      el.addEventListener('click', (e) => {
+
+  createPopUp(marker);
+  e.stopPropagation();
+});
+
+  }
+}
+
+
+});
+            
+
+
+</script>
 
 
 
