@@ -20,6 +20,14 @@ public class Document {
     private Date uploadTime;
     private byte[] content;
 
+    //constructors
+    public Document() {}
+    public Document(Long id, String name, long size) {
+        this.id = id;
+        this.name = name;
+        this.size = size;
+    }
+
     // getter methods
     public Long getId() {
         return id;
