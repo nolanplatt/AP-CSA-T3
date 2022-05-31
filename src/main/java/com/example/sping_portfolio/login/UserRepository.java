@@ -1,8 +1,7 @@
-package com.example.sping_portfolio.login.repository;
+package com.example.sping_portfolio.login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.sping_portfolio.login.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
