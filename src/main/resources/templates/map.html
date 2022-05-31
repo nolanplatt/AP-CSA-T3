@@ -56,6 +56,13 @@
         <input type="button" onclick="submitIssue()" value="Submit">
       </div>
 
+      <div id="reportComplete">
+        <h1>Complete an Issue</h1>
+        <p><i>reports will be marked as completed after 2 reports</i></p>
+        Exact Issue Title: <input id="title" type="text" name="issueTitle"><br>
+        <input type="button" onclick="markComplete()" value="Submit">
+      </div>
+
     </div>
   </div>
   </div>
@@ -73,6 +80,23 @@
 
     <script>
       function submitIssue() {
+        var title = document.getElementById('title').value;
+        var description = document.getElementById('description').value;
+        var contact = document.getElementById('contact').value;
+        var address = document.getElementById('address').value;
+        navigator.geolocation.getCurrentPosition(function (position) {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        var latLong = lat + "--" + long;
+
+        axios({
+          method: "GET",
+          url: `/addIssue?title=${title}&description=${description}&contact=${contact}&address=${address}&latLong=${latLong}`
+        }).then(resp => {
+
+        })
+        })
+
 
       }
     </script>
@@ -91,7 +115,7 @@
 
 
       async function buildLocationList(locations) {
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 6000));
         for (const location of locations.features) {
 
           const listings = document.getElementById('listings');
@@ -116,7 +140,7 @@
       }
 
       function call() {
-        sleep(3000);
+        sleep(6000);
         buildLocationList(geojson);
       }
       navigator.geolocation.getCurrentPosition(function (position) {

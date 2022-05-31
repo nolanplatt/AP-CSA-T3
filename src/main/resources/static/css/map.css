@@ -16,17 +16,23 @@
      #sideStatistics {
           position: fixed;
           border:5px solid cyan;
-          top:100px;
+          top:70px;
           right: 200px;
      }
 
      #report {
           position: fixed;
           border:5px solid cyan;
-          top:500px;
+          top:300px;
           right: 20px;
      }
-
+     #reportComplete {
+        position: fixed;
+        border:5px solid cyan;
+        top:600px;
+        right: 80px;
+   }
+     
      .marker {
                border: none;
                cursor: pointer;
