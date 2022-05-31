@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}"
+    lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <!-- Start of head content specific to page -->
+        <title>Create Blog</title>
+        <!-- End of head content specific to page -->
+    </div>
+</head>
+
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <!-- Start of body content specific to page -->
+        <form action="#" th:action="@{/saveBlog}" th:object="blog" method="POST">
+            <!-- <input type="text" th:field="*{title}"> -->
+            <!-- <input type="text" th:field="*{author}"> -->
+            <!-- <input type="text" th:field="*{body}"> -->
+            <!-- <button type="submit" class="btn btn-info col-2">Submit</button> -->
+        </form>
+        <!-- End of body content specific to page -->
+    </div>
+</body>
+
+</html>
