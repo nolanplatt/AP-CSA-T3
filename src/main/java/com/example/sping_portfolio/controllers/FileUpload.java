@@ -1,6 +1,7 @@
 package com.example.sping_portfolio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -13,6 +14,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import com.example.sping_portfolio.fileupload.Document;
 import com.example.sping_portfolio.fileupload.DocumentRepository;
@@ -47,5 +52,26 @@ public class FileUpload {
         ra.addFlashAttribute("message", "The file uploaded successfully!");
 
         return "redirect:/fileupload";
+    }
+
+    @GetMapping("/download")
+    public void downloadFile(@Param("id") Long id, HttpServletResponse response) throws Exception {
+        Optional<Document> result = repo.findById(id);
+        if (!result.isPresent()) {
+            throw new Exception("Couldn't find document with ID: " + id);
+        }
+
+        Document document = result.get();
+
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=" + document.getName();
+        
+        response.setHeader(headerKey, headerValue);
+
+        ServletOutputStream outputStream = response.getOutputStream();
+
+        outputStream.write(document.getContent());
+        outputStream.close();
     }
 }

@@ -23,7 +23,7 @@
                             <img th:src="@{/images/document_icon.png}" width="50"/>
                         </div>
                         <div>
-                            <a th:href="@{/download}">[[${doc.name}]]</a>
+                            <a th:href="@{'/download?id=' + ${doc.id}}">[[${doc.name}]]</a>
                         </div>
                         <div>
                             ([[${#numbers.formatInteger(doc.size, 4, 'COMMA')}]] bytes)
