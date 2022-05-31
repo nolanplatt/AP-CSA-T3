@@ -26,11 +26,15 @@ public class Map {
             .build();
 
             ArrayList<String> result = new ArrayList<String>();
-            String elementResult = "";
+            int numIssues = 0;
+            int numCompleted = 0;
+            int numReports = 0;
 
 
     public Map() throws IOException {
-        FirebaseApp.initializeApp(options);
+        if (FirebaseApp.getApps().isEmpty()) {
+            FirebaseApp.initializeApp(options);
+         }
     }
 
     @GetMapping("/map")    
@@ -44,7 +48,7 @@ public class Map {
     @GetMapping("/fetchFromFirebase")
     @ResponseBody
     public String fetchFromFirebase(@RequestParam(name = "index", required = false, defaultValue = "0") int index) throws IOException, InterruptedException {
-        elementResult = "";
+        String[] elementResult = {""};
         DatabaseReference ref = FirebaseDatabase.getInstance()
                 .getReference("map/" + index);
 
@@ -52,9 +56,15 @@ public class Map {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() == null) {
+                    elementResult[0] = "empty";
+                }
+                else {
                  result.add(dataSnapshot.getValue(String.class));
-                 elementResult += (dataSnapshot.getValue(String.class));
-                System.out.println("Value: " + elementResult);
+                 elementResult[0] = (dataSnapshot.getValue(String.class));
+                 System.out.println("Value: " + elementResult[0]);
+                }
+                 
             }
 
             @Override
@@ -62,8 +72,91 @@ public class Map {
                 System.out.println("Failed to read value: " + error.toException());
             }
         });
-        //Thread.sleep(1500);
-        return elementResult;
+        Thread.sleep(1500);
+        if(elementResult[0].isEmpty()) {
+            elementResult[0] = "empty";
+            return "empty";
+        }
+        return elementResult[0];
     }
+
+
+    @GetMapping("/fetchNumIssues")
+    @ResponseBody
+    public int fetchNumIssues() throws IOException, InterruptedException {
+        numIssues = 0;
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("map/numIssues");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                numIssues = dataSnapshot.getValue(Integer.class);
+               
+                
+                 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.out.println("Failed to read value: " + error.toException());
+            }
+        });
+        Thread.sleep(1500);
+        return numIssues;
+    }
+
+    @GetMapping("/fetchNumCompleted")
+    @ResponseBody
+    public int fetchNumCompleted() throws IOException, InterruptedException {
+        numCompleted = 0;
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("map/numCompleted");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                numCompleted = dataSnapshot.getValue(Integer.class);
+               
+                
+                 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.out.println("Failed to read value: " + error.toException());
+            }
+        });
+        Thread.sleep(1500);
+        return numCompleted;
+    }
+
+
+    @GetMapping("/fetchNumReports")
+    @ResponseBody
+    public int fetchNumReports() throws IOException, InterruptedException {
+        numReports = 0;
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("map/numReports");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                numReports = dataSnapshot.getValue(Integer.class);
+               
+                
+                 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.out.println("Failed to read value: " + error.toException());
+            }
+        });
+        Thread.sleep(1500);
+        return numReports;
+    }
+
+
 
 }
