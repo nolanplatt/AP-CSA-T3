@@ -12,24 +12,27 @@
         <title>EnvMapper | Home</title>
     </div>
 
-    
+
 </head>
 
 <body>
     <div layout:fragment="content" th:remove="tag">
 
-        <div id="particles-js"></div>
+        <div id="particles-js" style="z-index: 0"></div>
 
-        <div id="top">
-            <h1  style="font-size:2vw">🌎Envmapper.tk</h1>
-
+        <div id="top" style="z-index: 5">
+            <h1 style="font-size:2vw">🌎Envmapper.tk</h1>
+            <!-- <iframe style="z-index: 10" width="560" height="315" src="https://www.youtube.com/embed/fWN3QKlc1u4 "
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe> -->
         </div>
 
         <div id="app">
-                <!-- Typerwriter.js Implementation-->
-                <div  class="text-center" id="typewriter">
-                </div>
-                <!-- End Typewriter.js -->
+            <!-- Typerwriter.js Implementation-->
+            <div class="text-center" id="typewriter">
+            </div>
+            <!-- End Typewriter.js -->
         </div>
 
 
@@ -38,7 +41,7 @@
             <script src="/js/particles.js"></script>
 
             <script>
-                particlesJS.load('particles-js', '/particlesjs-config.json', function() {
+                particlesJS.load('particles-js', '/particlesjs-config.json', function () {
                     console.log('callback - particles.js config loaded');
                 });
             </script>
@@ -50,7 +53,7 @@
                     loop: true
                 });
                 typewriter.typeString
-                ('See how we are ... ')
+                    ('See how we are ... ')
                     .typeString(' <strong><u>changing the world</u></strong>')
                     .pauseFor(1200)
                     .deleteChars(18)
@@ -81,13 +84,12 @@
 
             <div class="commercial">
                 <!-- Add Commercial Here -->
-               
+
             </div>
 
 
         </div>
-        <input type="hidden" th:name="${_csrf.parameterName}" 
-            th:value="${_csrf.token}" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     </div>
 </body>
 
