@@ -28,12 +28,12 @@ html, body{
     max-width: 1080px;
     background: #f5e9e9;
     width: 480px;
-    height: 950px;
+    height: 925px;
     border-radius: 25px ;
 }
 .solar-head{
     background: var(--orange);
-    color: #eac7c7;
+    color: #d1eee9;
     display: flex;
     align-items: center;
     border-radius: 25px 25px 0px 0px;
@@ -46,7 +46,7 @@ html, body{
 
 }
 .active-head{
-    background: #c27746;
+    background: var(--orange);
     border-radius: 25px 25px 0px 0px;
 }
 .solar-content{
