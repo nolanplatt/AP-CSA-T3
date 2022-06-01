@@ -98,31 +98,7 @@
 
           })
         })
-      }
-
-      function markComplete() {
-        var title = document.getElementById('exactTitle').value;
-
-        axios({
-          method: "GET",
-          url: "/fetchNumIssues"
-        }).then(resp1 => {
-
-          axios({
-          method: "GET",
-          url: "/fetchNumCompleted"
-        }).then(resp2 => {
-
-          axios({
-            method: "GET",
-            url: `/completeIssue?title=${title}&numCompleted=${resp2.data}&numIssues=${resp1.data}`
-          }).then(resp => {
-
-          
-          })
-        })
-      })
-
+        location.href = "newBlogForm";
 
       }
 
