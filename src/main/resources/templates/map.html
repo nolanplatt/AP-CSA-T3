@@ -60,7 +60,7 @@
         <div id="reportComplete">
           <h1>Complete an Issue</h1>
           <p><i>reports will be marked as completed after 2 reports</i></p>
-          Exact Issue Title: <input id="title" type="text" name="issueTitle"><br>
+          Exact Issue Title: <input id="exactTitle" type="text" name="issueTitle"><br>
           <input type="button" onclick="markComplete()" value="Submit">
         </div>
       </div>
@@ -81,7 +81,8 @@
     </script>
 
     <script>
-      function submitIssue() {
+     
+     function submitIssue() {
         var title = document.getElementById('title').value;
         var description = document.getElementById('description').value;
         var contact = document.getElementById('contact').value;
@@ -99,8 +100,31 @@
           })
         })
 
-
       }
+      
+      function markComplete() {
+        var title = document.getElementById('exactTitle').value;
+
+        axios({
+          method: "GET",
+          url: "/fetchNumIssues"
+        }).then(resp1 => {
+
+          axios({
+          method: "GET",
+          url: "/fetchNumCompleted"
+        }).then(resp2 => {
+
+          axios({
+            method: "GET",
+            url: `/completeIssue?title=${title}&numCompleted=${resp2.data}&numIssues=${resp1.data}`
+          }).then(resp => {
+
+
+          })
+        })
+      })
+    }
     </script>
 
 
@@ -210,7 +234,6 @@
 
               split = resp.data.split('--');
 
-              console.log("split: " + split)
               let latLongSplit = split[0].split(",");
               let lat = latLongSplit[0];
               let long = latLongSplit[1];
@@ -259,7 +282,6 @@
                   }
                 }
               });
-              console.log("geo-> " + JSON.stringify(geojson))
               addMarkers(geojson)
 
 

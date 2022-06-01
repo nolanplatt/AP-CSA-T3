@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -49,7 +50,6 @@ public class Map {
         DatabaseReference ref = FirebaseDatabase.getInstance()
                 .getReference("map/" + index);
 
-        System.out.println("ref: " + "map/" + index);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -58,7 +58,6 @@ public class Map {
                 } else {
                     result.add(dataSnapshot.getValue(String.class));
                     elementResult[0] = (dataSnapshot.getValue(String.class));
-                    System.out.println("Value: " + elementResult[0]);
                 }
 
             }
@@ -153,6 +152,7 @@ public class Map {
             @RequestParam(name = "address", required = false, defaultValue = "null") String address,
             @RequestParam(name = "latLong", required = false, defaultValue = "null") String latLong)
             throws IOException, InterruptedException {
+                System.out.println("HELLO?");
 
         String[] latLongArr = latLong.split("--", 2);
 
@@ -167,26 +167,13 @@ public class Map {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 numIssues = dataSnapshot.getValue(Integer.class);
 
-                DatabaseReference ref = FirebaseDatabase.getInstance()
-                        .getReference("map/" + numIssues);
-                ref.setValueAsync(newString);
-
-                DatabaseReference ref2 = FirebaseDatabase.getInstance()
-                        .getReference("map/numIssues");
-                ref2.setValueAsync(numIssues + 1);
                 DatabaseReference ref3 = FirebaseDatabase.getInstance()
                         .getReference("map/numReports");
 
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        int numReports = dataSnapshot.getValue(Integer.class);
-
-                        System.out.println("SNAPSHOT-> " + numReports);
-
-                        DatabaseReference ref4 = FirebaseDatabase.getInstance()
-                                .getReference("map/numReports");
-                        ref4.setValueAsync(numReports + 1);
+                        numReports = dataSnapshot.getValue(Integer.class);
 
                     }
 
@@ -203,15 +190,93 @@ public class Map {
             }
         });
 
+        //
+
+        System.out.println("New string-- " + newString);
+        DatabaseReference refSet1 = FirebaseDatabase.getInstance()
+                .getReference("map/" + numIssues);
+        refSet1.setValueAsync(newString);
+
+        DatabaseReference ref2 = FirebaseDatabase.getInstance()
+                .getReference("map/numIssues");
+        ref2.setValueAsync(numIssues + 1);
+
+        DatabaseReference ref4 = FirebaseDatabase.getInstance()
+                .getReference("map/numReports");
+        ref4.setValueAsync(numReports + 1);
+
         return "";
 
     }
 
     @GetMapping("/completeIssue")
     @ResponseBody
-    public String markComplete(@RequestParam(name = "title", required = false, defaultValue = "null") String title) {
-            
-            return "";
+    public String markComplete(@RequestParam(name = "title", required = false, defaultValue = "null") String title,
+    @RequestParam(name = "numCompleted", required = false, defaultValue = "null") int numCompleted,
+            @RequestParam(name = "numIssues", required = false, defaultValue = "null") int numIssues) {
+        String[] newString = { "" };
+        String[] index = {};
+        for (int i = 0; i < numIssues; i++) {
 
-            }
+            String mapI = "map/" + i;
+            DatabaseReference ref = FirebaseDatabase.getInstance()
+                    .getReference("map/" + i);
+
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    String snapshot = dataSnapshot.getValue(String.class);
+
+                    String[] arr = snapshot.split("--", 20);
+
+                    String foundTitle = arr[1];
+                    if (foundTitle.equals(title)) {
+
+                        // Found Corresponding Issue
+                        // --> Determine if # of reports is >= to 1, if so remove from db
+                        // --> If # of reports is 0, add 1.
+                        DatabaseReference newRef = FirebaseDatabase.getInstance().getReference();
+
+                        int numReports = Integer.valueOf(arr[5]);
+                        if (numReports >= 1) {
+                            HashMap<String, Object> updates = new HashMap<>();
+                            updates.put(mapI, null);
+                            newRef.updateChildrenAsync(updates);
+                            newString[0] = null;
+
+
+                            HashMap<String, Object> updates2 = new HashMap<>();
+                            updates2.put("map/numIssues", numIssues - 1);
+                            newRef.updateChildrenAsync(updates2);
+
+                            HashMap<String, Object> updates3 = new HashMap<>();
+                            updates3.put("map/numCompleted", numCompleted +1);
+                            newRef.updateChildrenAsync(updates3);
+
+                        } else {
+                            String newNumReports = Integer.toString(++numReports);
+                            newString[0] = arr[0] + "--" + arr[1] + "--" + arr[2] + "--" + arr[3] + "--" + arr[4] + "--"
+                                    + newNumReports;
+
+                            HashMap<String, Object> updates = new HashMap<>();
+                            updates.put(mapI, newString[0]);
+                            newRef.updateChildrenAsync(updates);
+
+                        }
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    System.out.println("Failed to read value: " + error.toException());
+                }
+            });
+
+
+        }
+        return newString[0];
+    }
 }
