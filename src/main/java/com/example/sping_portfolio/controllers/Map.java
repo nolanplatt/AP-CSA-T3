@@ -152,7 +152,6 @@ public class Map {
             @RequestParam(name = "address", required = false, defaultValue = "null") String address,
             @RequestParam(name = "latLong", required = false, defaultValue = "null") String latLong)
             throws IOException, InterruptedException {
-                System.out.println("HELLO?");
 
         String[] latLongArr = latLong.split("--", 2);
 
@@ -192,7 +191,6 @@ public class Map {
 
         //
 
-        System.out.println("New string-- " + newString);
         DatabaseReference refSet1 = FirebaseDatabase.getInstance()
                 .getReference("map/" + numIssues);
         refSet1.setValueAsync(newString);
