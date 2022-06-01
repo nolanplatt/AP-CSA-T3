@@ -54,8 +54,53 @@ function removeActiveClass(){
 
 // main bmi calculation function
 function performSolarCalc(){
-    let SolarInfo = getUserInput();
-    if(SolarInfo) SolarSavings(SolarInfo);
+    let familyMembers   = document.getElementById('familyCount').value,
+        homeowner       = document.getElementById('HOTrue').checked,
+        evCount         = document.getElementById('vehicles').value,
+        electricVehicle = document.getElementById('EVTrue').checked,
+        year            = document.getElementById('year').value,
+        battery         = document.getElementById('batteryTrue').checked;
+
+    status = checkInputStatus([familyMembers, evCount, year]);
+
+    familyMembers = parseInt(familyMembers);
+    evCount = parseInt(evCount);
+    year = parseInt(year);
+
+    let taxCredit;
+    if(year == 2022) {
+        taxCredit = 0.26;
+    } else if(year == 2023){
+        taxCredit = 0.24;
+    } else if(year > 2023){
+        taxCredit = 0;
+    } else {
+        status |= true;
+    }
+
+    if(status == true){
+        document.querySelector('.alert-error').style.display = "block";
+        setTimeout(() => {
+            document.querySelector('.alert-error').style.display = "none";
+        }, 1000);
+        return;
+    }
+
+    let solarCost = (familyMembers * 893 * 0.199 + (electricVehicle * 13.24 * evCount) * (1 - taxCredit)) / 12;
+
+    document.getElementById('solar-value').innerHTML = solarCost.toFixed(2);
+
+    document.getElementById('solar-value').innerHTML = `${solarCost} USD`;
+
+    let SolarCategory;
+    if(solarCost > 0){
+        SolarCategory = "Cost Effective!";
+    } else if(solarCost < 0){
+        SolarCategory = "Not Worth The Costs";
+    }
+
+    document.getElementById('solar-category').innerHTML = `${SolarCategory}`;
+    document.getElementById('home-owner').innerHTML = SolarInfo.gender;
 }
 
 // get input values
@@ -112,19 +157,4 @@ function calculateSolar(values){
         savings = (values.weight / Math.pow(values.height, 2)).toFixed(2);
     }
     return {gender: values.gender, savings};
-}
-
-// print result information
-function SolarSavings(SolarInfo){
-    document.getElementById('solar-value').innerHTML = `${SolarInfo.savings} kg/m<sup>2</sup>`;
-
-    let SolarCategory;
-    if(SolarInfo.savings > 0){
-        SolarCategory = "Cost Effective!";
-    } else if(SolarInfo.savings < 0){
-        SolarCategory = "Not Worth The Costs";
-    }
-
-    document.getElementById('solar-category').innerHTML = `${SolarCategory}`;
-    document.getElementById('home-owner').innerHTML = SolarInfo.gender;
 }

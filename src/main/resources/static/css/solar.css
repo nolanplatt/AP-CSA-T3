@@ -103,7 +103,7 @@ body{
 }
 .btns .btn:hover{
     outline: 0;
-    opacity: 0.9;
+    opacity: 0.75;
 }
 .btns .btn:focus{
     outline: 0;
@@ -182,5 +182,9 @@ img{
     left: 10px;
     padding-top: 0px;
     padding-bottom: 10px;
+}
+
+.solar-output{
+    text-align: center;
 }
 
