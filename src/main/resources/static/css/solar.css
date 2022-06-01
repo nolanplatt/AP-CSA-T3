@@ -33,7 +33,7 @@ html, body{
 }
 .solar-head{
     background: var(--orange);
-    color: #d1eee9;
+    color: #f3e8bc;
     display: flex;
     align-items: center;
     border-radius: 25px 25px 0px 0px;
