@@ -59,7 +59,7 @@
       <div id="reportComplete">
         <h1>Complete an Issue</h1>
         <p><i>reports will be marked as completed after 2 reports</i></p>
-        Exact Issue Title: <input id="title" type="text" name="issueTitle"><br>
+        Exact Issue Title: <input id="exactTitle" type="text" name="issueTitle"><br>
         <input type="button" onclick="markComplete()" value="Submit">
       </div>
 
@@ -96,6 +96,21 @@
 
         })
         })
+
+
+      }
+
+
+      function markComplete() {
+        var title = document.getElementById('exactTitle').value;
+
+        axios({
+          method: "GET",
+          url: `/addIssue?title=${title}&description=${description}&contact=${contact}&address=${address}&latLong=${latLong}`
+        }).then(resp => {
+
+        })
+  
 
 
       }

@@ -167,26 +167,16 @@ public class Map {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 numIssues = dataSnapshot.getValue(Integer.class);
 
-                DatabaseReference ref = FirebaseDatabase.getInstance()
-                        .getReference("map/" + numIssues);
-                ref.setValueAsync(newString);
 
-                DatabaseReference ref2 = FirebaseDatabase.getInstance()
-                        .getReference("map/numIssues");
-                ref2.setValueAsync(numIssues + 1);
                 DatabaseReference ref3 = FirebaseDatabase.getInstance()
                         .getReference("map/numReports");
 
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        int numReports = dataSnapshot.getValue(Integer.class);
+                         numReports = dataSnapshot.getValue(Integer.class);
 
-                        System.out.println("SNAPSHOT-> " + numReports);
 
-                        DatabaseReference ref4 = FirebaseDatabase.getInstance()
-                                .getReference("map/numReports");
-                        ref4.setValueAsync(numReports + 1);
 
                     }
 
@@ -202,6 +192,24 @@ public class Map {
                 System.out.println("Failed to read value: " + error.toException());
             }
         });
+
+//
+
+
+DatabaseReference refSet1 = FirebaseDatabase.getInstance()
+.getReference("map/" + numIssues);
+refSet1.setValueAsync(newString);
+
+DatabaseReference ref2 = FirebaseDatabase.getInstance()
+.getReference("map/numIssues");
+ref2.setValueAsync(numIssues + 1);
+
+
+DatabaseReference ref4 = FirebaseDatabase.getInstance()
+.getReference("map/numReports");
+ref4.setValueAsync(numReports + 1);
+
+        
 
         return "";
 
