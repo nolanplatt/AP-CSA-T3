@@ -1,14 +1,9 @@
 const SOLAR_HEADS = document.querySelectorAll('.solar-head');
-const BMI_USC = document.getElementById('bmi-usc');
 const CALC_BTN = document.getElementById('calc-btn');
 const CLR_BTN = document.getElementById('clr-btn');
 let activeForm;
 
 // event listeners
-window.addEventListener('DOMContentLoaded', () => {
-    BMI_USC.classList.add('show-bmi');
-    activeForm = "bmi-usc";
-});
 
 CALC_BTN.addEventListener('click', performSolarCalc);
 CLR_BTN.addEventListener('click', () => {

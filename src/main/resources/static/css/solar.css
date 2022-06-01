@@ -9,13 +9,13 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+html, body{
     font-family: 'Lato', sans-serif;
-    background: var(--soft-yellow);
+    background: var(--soft-yellow) !important;
     font-size: 1.2rem;
     color: rgba(0, 0, 0, 0.9);
 }
-.container{
+.page{
     left: 0px;
     width: 300px;
     padding-left: 50px;
@@ -28,7 +28,7 @@ body{
     max-width: 1080px;
     background: #f5e9e9;
     width: 480px;
-    height: 850px;
+    height: 950px;
     border-radius: 25px ;
 }
 .solar-head{
@@ -51,23 +51,27 @@ body{
 }
 .solar-content{
     padding: 2rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
 
 }
-.form-group{
+.form-grp{
     padding: 0.55rem 0;
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
 
 }
-.form-group.col-3{
+.form-grp.column{
     display: grid;
-    grid-template-columns: 85px 2fr 2fr 2fr 2fr 2fr;
+    grid-template-columns: 85px 1fr 2fr;
     align-items: center;
 }
-.form-control{
+.form-ctrl{
     width: 100%;
-    font-size: 1.15rem;
+    font-size: 19px;
     font-family: inherit;
     padding: 0.6rem 1.2rem;
     margin: 0.2rem 0;
@@ -82,7 +86,7 @@ body{
     opacity: 0.6;
 }
 .btns{
-    padding: 1.6rem;
+    padding: 0rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +96,7 @@ body{
     margin: 0 0.5rem;
     padding: 0.8rem 0;
     font-family: inherit;
-    font-size: 1.15rem;
+    font-size: 20px;
     border: none;
     background: var(--orange);
     color: #fff;
@@ -108,32 +112,16 @@ body{
 .btns .btn:focus{
     outline: 0;
 }
-#bmi-usc, #bmi-si{
-    display: none;
-}
-/* js related */
-.show-bmi{
-    display: block!important;
-}
+
 .alert-error{
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 20px;
     text-align: center;
-    padding: 1rem 1.6rem 0;
+    padding-top: 0rem;
     color: var(--orange);
     display: none;
 }
-.bmi-output{
-    padding: 1rem 1.6rem;
-    text-align: center;
-}
-#bmi-value{
-    padding-bottom: 0.4rem;
-}
-#bmi-category{
-    color: var(--orange);
-}
-#bmi-gender{
-    text-transform: capitalize;
-}
+
 h1 {
     font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
     font-size: 30px;
@@ -147,6 +135,15 @@ h1 {
     width: 350px;
     padding-top: 50px;
     padding-left: 50px;
+}
+
+h2 {
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+
 }
 h3 {
     font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
@@ -163,20 +160,6 @@ p { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
     font-weight: 500;
     line-height: 20px; }
 
-blockquote { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
-    font-size: 21px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 30px;
-}
-pre { font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 18.5667px; }
-
 img{
     position: absolute;
     left: 10px;
@@ -188,3 +171,18 @@ img{
     text-align: center;
 }
 
+label {
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 20px;
+}
+
+.form-ctrl::placeholder{
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 20px;
+    text-align: right !important;
+    opacity: 0.5;
+}
+
+.output {
+    padding-top: 2rem;
+}
