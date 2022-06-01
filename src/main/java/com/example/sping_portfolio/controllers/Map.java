@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,11 +17,21 @@ import com.google.firebase.FirebaseOptions;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.database.*;
 
+
+import com.fasterxml.jackson.core.type.TypeReference;
+
+
+
 @Controller
 public class Map {
-    FileInputStream serviceAccount = new FileInputStream("serviceAccount.json");
+
+    
+   // FileInputStream serviceAccount = new FileInputStream("serviceAccount.json");
+    InputStream is = TypeReference.class.getResourceAsStream("/json/serviceAccount.json");
+
+
     FirebaseOptions options = FirebaseOptions.builder()
-            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+            .setCredentials(GoogleCredentials.fromStream(is))
             .setDatabaseUrl("https://nolan-4b453.firebaseio.com/")
             .build();
 
@@ -152,7 +163,6 @@ public class Map {
             @RequestParam(name = "address", required = false, defaultValue = "null") String address,
             @RequestParam(name = "latLong", required = false, defaultValue = "null") String latLong)
             throws IOException, InterruptedException {
-                System.out.println("HELLO?");
 
         String[] latLongArr = latLong.split("--", 2);
 
@@ -192,7 +202,6 @@ public class Map {
 
         //
 
-        System.out.println("New string-- " + newString);
         DatabaseReference refSet1 = FirebaseDatabase.getInstance()
                 .getReference("map/" + numIssues);
         refSet1.setValueAsync(newString);
