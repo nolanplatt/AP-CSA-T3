@@ -28,14 +28,7 @@ public class FileUpload {
     @Autowired
     private DocumentRepository repo;
 
-
-
-    @GetMapping("/fileupload")
-    public String fileUpload() {
-        return "/fileupload";
-    }
-
-/*
+ 
     @GetMapping("/fileupload")
     public String fileUpload(Model model) {
         List<Document> listDocs = repo.findAll();
@@ -43,7 +36,7 @@ public class FileUpload {
 
         return "/fileupload";
     }
-*/
+
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("document") MultipartFile multipartFile, RedirectAttributes ra) throws IOException {
         
