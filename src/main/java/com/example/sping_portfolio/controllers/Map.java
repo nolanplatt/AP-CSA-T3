@@ -19,6 +19,7 @@ import com.google.firebase.database.*;
 @Controller
 public class Map {
     FileInputStream serviceAccount = new FileInputStream("serviceAccount.json");
+
     FirebaseOptions options = FirebaseOptions.builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
             .setDatabaseUrl("https://nolan-4b453.firebaseio.com/")
