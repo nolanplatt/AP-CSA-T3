@@ -32,14 +32,14 @@
 
     <div id="particles-js"></div>
 
-    <div id="app">
+    <div id="app" class="text-white">
       <div class='sidebar'>
         <div id='listings' class='listings'></div>
       </div>
       <div id="map" class="map"> </div>
 
 
-      <div class="boxes">
+      <div class="boxes text-dark">
         <div id="sideStatistics">
           <h1>Statistics</h1>
           <p id="totalReports">Number of Reports (all time): 0</p>
@@ -81,8 +81,8 @@
     </script>
 
     <script>
-     
-     function submitIssue() {
+
+      function submitIssue() {
         var title = document.getElementById('title').value;
         var description = document.getElementById('description').value;
         var contact = document.getElementById('contact').value;
@@ -101,7 +101,7 @@
         })
 
       }
-      
+
       function markComplete() {
         var title = document.getElementById('exactTitle').value;
 
@@ -111,20 +111,20 @@
         }).then(resp1 => {
 
           axios({
-          method: "GET",
-          url: "/fetchNumCompleted"
-        }).then(resp2 => {
-
-          axios({
             method: "GET",
-            url: `/completeIssue?title=${title}&numCompleted=${resp2.data}&numIssues=${resp1.data}`
-          }).then(resp => {
+            url: "/fetchNumCompleted"
+          }).then(resp2 => {
+
+            axios({
+              method: "GET",
+              url: `/completeIssue?title=${title}&numCompleted=${resp2.data}&numIssues=${resp1.data}`
+            }).then(resp => {
 
 
+            })
           })
         })
-      })
-    }
+      }
     </script>
 
 

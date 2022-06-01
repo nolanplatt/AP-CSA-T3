@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -32,6 +33,12 @@ public class BlogController {
     @PostMapping("/saveBlog")
     public String saveBlog(@ModelAttribute("blog") Blog blog) {
         blogService.saveBlog(blog);
+        return "redirect:/blog";
+    }
+
+    @GetMapping("/deleteBlog/{id}")
+    public String deleteBlog(@PathVariable(value = "id") long id) {
+        blogService.deleteBlogById(id);
         return "redirect:/blog";
     }
 
