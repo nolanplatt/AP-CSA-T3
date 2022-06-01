@@ -24,7 +24,7 @@
     <div layout:fragment="content" th:remove="tag">
         <!-- Start of body content specific to page -->
         <!--Main layout-->
-        <div class="bg-light pt-5">
+        <div class="pt-5">
             <div class="container">
                 <section class="card wow fadeIn">
                     <div class="card-body text-black text-center py-3 px-5 my-5">
@@ -34,7 +34,7 @@
                         <p>
                             <strong>View our many blogs on environmental safety and awareness</strong>
                         </p>
-                        <a href="@{/newBlogForm}" class="">
+                        <a th:href="@{/newBlogForm}" class="">
                             <button class="btn btn-sm btn-primary">
                                 Click here to create your own!
                             </button>

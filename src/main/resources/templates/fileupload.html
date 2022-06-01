@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <meta charset="ISO-8859-1">
-        <title>File Upload</title>
-        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    </head>
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}"
+    lang="en">
 
-    <body>
-        <div class="container-fluid text-center">
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>File Upload</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    </div>
+</head>
+
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <div class="container-fluid text-center pt-3">
             <div>
                 <h1>File Upload</h1>
             </div>
@@ -20,7 +25,7 @@
                 <th:block th:each="doc : ${listDocs}">
                     <div class="col">
                         <div>
-                            <img th:src="@{/images/document_icon.png}" width="50"/>
+                            <img th:src="@{/images/document_icon.png}" width="50" />
                         </div>
                         <div>
                             <a th:href="@{'/download?id=' + ${doc.id}}">[[${doc.name}]]</a>
@@ -32,7 +37,8 @@
                 </th:block>
             </div>
 
-            <form th:action="@{/upload}" method="post" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto">
+            <form th:action="@{/upload}" method="post" enctype="multipart/form-data"
+                style="max-width: 600px; margin: 0 auto">
                 <div class="border rounded m-3">
                     <h2>Upload a file:</h2>
                     <p>
@@ -45,5 +51,7 @@
             </form>
 
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
