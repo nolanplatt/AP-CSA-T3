@@ -4,21 +4,21 @@
   lang="en">
 
 <head>
-  <script src="js/core.js"></script>
-  <link rel="stylesheet" href="css/map.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin="" />
-
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-
-  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
-
-
-
   <div layout:fragment="metadata" th:remove="tag">
+    <script src="js/core.js"></script>
+    <link rel="stylesheet" href="/css/map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
+
+
+
     <title>EnvMapper | Map</title>
   </div>
 
@@ -39,28 +39,30 @@
       <div id="map" class="map"> </div>
 
 
-      <div id="sideStatistics">
-        <h1>Statistics</h1>
-        <p id="totalReports">Number of Reports (all time): 0</p>
-        <p id="activeIssues">Number of Active Issues: 0</p>
-        <p id="completedIssues">Number of Completed Issues: 0</p>
-      </div>
+      <div class="boxes">
+        <div id="sideStatistics">
+          <h1>Statistics</h1>
+          <p id="totalReports">Number of Reports (all time): 0</p>
+          <p id="activeIssues">Number of Active Issues: 0</p>
+          <p id="completedIssues">Number of Completed Issues: 0</p>
+        </div>
 
-      <div id="report">
-        <h1>Report an Issue</h1>
-        <p><i>reports will be added at your current geographical location</i></p>
-        Issue Title (brief): <input id="title" type="text" name="issueTitle"><br>
-        Issue Description: <input id="description" type="text" name="issueDesc"><br>
-        Your Phone Number: <input id="contact" type="text" name="issueContact"><br>
-        Address of Issue: <input id="address" type="text" name="issueAddress"><br>
-        <input type="button" onclick="submitIssue()" value="Submit">
-      </div>
+        <div id="report">
+          <h1>Report an Issue</h1>
+          <p><i>reports will be added at your current geographical location</i></p>
+          Issue Title (brief): <input id="title" type="text" name="issueTitle"><br>
+          Issue Description: <input id="description" type="text" name="issueDesc"><br>
+          Your Phone Number: <input id="contact" type="text" name="issueContact"><br>
+          Address of Issue: <input id="address" type="text" name="issueAddress"><br>
+          <input type="button" onclick="submitIssue()" value="Submit">
+        </div>
 
-      <div id="reportComplete">
-        <h1>Complete an Issue</h1>
-        <p><i>reports will be marked as completed after 2 reports</i></p>
-        Exact Issue Title: <input id="exactTitle" type="text" name="issueTitle"><br>
-        <input type="button" onclick="markComplete()" value="Submit">
+        <div id="reportComplete">
+          <h1>Complete an Issue</h1>
+          <p><i>reports will be marked as completed after 2 reports</i></p>
+          Exact Issue Title: <input id="title" type="text" name="issueTitle"><br>
+          <input type="button" onclick="markComplete()" value="Submit">
+        </div>
       </div>
 
     </div>
@@ -85,32 +87,17 @@
         var contact = document.getElementById('contact').value;
         var address = document.getElementById('address').value;
         navigator.geolocation.getCurrentPosition(function (position) {
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
-        var latLong = lat + "--" + long;
+          let lat = position.coords.latitude;
+          let long = position.coords.longitude;
+          var latLong = lat + "--" + long;
 
-        axios({
-          method: "GET",
-          url: `/addIssue?title=${title}&description=${description}&contact=${contact}&address=${address}&latLong=${latLong}`
-        }).then(resp => {
+          axios({
+            method: "GET",
+            url: `/addIssue?title=${title}&description=${description}&contact=${contact}&address=${address}&latLong=${latLong}`
+          }).then(resp => {
 
+          })
         })
-        })
-
-
-      }
-
-
-      function markComplete() {
-        var title = document.getElementById('exactTitle').value;
-
-        axios({
-          method: "GET",
-          url: `/addIssue?title=${title}&description=${description}&contact=${contact}&address=${address}&latLong=${latLong}`
-        }).then(resp => {
-
-        })
-  
 
 
       }
