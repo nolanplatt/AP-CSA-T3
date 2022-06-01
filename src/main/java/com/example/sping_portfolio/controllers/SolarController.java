@@ -9,7 +9,7 @@ public class SolarController {
 
     public String getSolar() {
         return "solar";
-    }
+    }   
 
 }
 
