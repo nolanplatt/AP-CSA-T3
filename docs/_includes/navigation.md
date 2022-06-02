@@ -6,5 +6,6 @@ Table of Contents
 - [Postmortem Plan](/{{site.baseurl}}/plan)
 - [Accomplishments](/{{site.baseurl}}/accomplishments)
 - [Development](/{{site.baseurl}}/development)
+- [Nolan Platt - Individual Tech Requirements](/{{site.baseurl}}/nplattIndiTechReq)
 
 ---
