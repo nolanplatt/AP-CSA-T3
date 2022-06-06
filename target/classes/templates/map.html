@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}"
+    lang="en">
+
+<head>
+    <script src="js/core.js"></script>
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>TBD | Map</title>
+    </div>
+</head>
+
+<body>
+    <div layout:fragment="content" th:remove="tag">
+
+
+        <div id="app">/<div>
+            <div id="map" style="width: 1000px; height: 750px; margin:0 auto;"></div>
+
+                
+            </div>
+        </div>
+
+
+        <div layout:fragment="script" th:remove="tag">
+            <script th:inline="javascript">
+              var map = L.map('map').setView([33.0144, -117.1214], 15);
+              L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiZ3JhbmQ2IiwiYSI6ImNqb3FjM2IzdDAxY2Eza252aXp1aDcybmwifQ.Sp7OsuHHEq1ZK7DgVTgO-w'
+}).addTo(map);
+
+            </script>
+
+</body>
+
+</html>
